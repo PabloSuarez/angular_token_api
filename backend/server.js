@@ -20,12 +20,11 @@ var router = express.Router()
 router.post('/auth/signup', auth.emailSignup)
 router.post('/auth/login', auth.emailLogin)
 
+// Ruta solo accesible si estás autenticado
+router.get('/auth/private', middleware.ensureAuthenticated, auth.listUsers)
+
 app.use(router)
 
-// Ruta solo accesible si estás autenticado
-router.get('/private', middleware.ensureAuthenticated, function(req, res) {
-	console.log('Estoy logeado')
-})
 
 // Iniciamos el servidor y la base de datos
 mongoose.connect('mongodb://localhost/user', function(err) {

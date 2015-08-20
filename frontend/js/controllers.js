@@ -5,8 +5,9 @@ angular.module('myapp.controllers', [])
     .controller("LoginController", LoginController)
     .controller("LogoutController", LogoutController)
     .controller("HomeController", HomeController)
+    .controller("PrivateController", PrivateController)
 
-    function SignUpController($auth, $location) {  
+    function SignUpController($auth, $location) {
         var vm = this;
         this.signup = function() {
             $auth.signup({
@@ -24,7 +25,7 @@ angular.module('myapp.controllers', [])
         }
     }
 
-    function LoginController($auth, $location) {  
+    function LoginController($auth, $location) {
         var vm = this;
         this.login = function(){
             $auth.login({
@@ -43,16 +44,25 @@ angular.module('myapp.controllers', [])
         }
     }
 
-    function LogoutController($auth, $location) {  
+    function LogoutController($auth, $location) {
+        console.log('salimos')
         $auth.logout()
             .then(function() {
                 // Desconectamos al usuario y lo redirijimos
+                console.log('salimos')
                 $location.path("/")
             });
     }
 
-    function HomeController() {
-        console.log('Entre')
+    function HomeController($auth, $location, myappService) {
+        var self = this
+        this.checkLogin = function (){
+            
+        }
+    }
+
+    function PrivateController($auth, $location) {
+        
     }
 
 })()

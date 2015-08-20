@@ -2,6 +2,7 @@
 
 var app = angular.module('myapp', [
     'ngRoute',
+    'myapp.services',
     'myapp.controllers',
     'satellizer'
 ])
@@ -16,7 +17,7 @@ app.config(['$authProvider', '$routeProvider', function($authProvider, $routePro
     // Configuración de las rutas/estados
     $routeProvider
         .when("/",{
-            templateUrl: "views/private.html",
+            templateUrl: "views/home.html",
             controller: "HomeController"
         })
         .when("/login",{
@@ -30,7 +31,7 @@ app.config(['$authProvider', '$routeProvider', function($authProvider, $routePro
             controllerAs: "signup"
         })
         .when("/logout",{
-            templateUrl: null,
+            templateUrl: "views/home.html",
             controller: "LogoutController"
         })
         .when("/private",{

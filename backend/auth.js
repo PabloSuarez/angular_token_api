@@ -21,19 +21,36 @@ exports.emailSignup = function(req, res) {
 }
 
 exports.emailLogin = function(req, res) {
-    console.log(req.body.email.toLowerCase())
-    User.findOne({email: req.body.email.toLowerCase()}, function(err, user) {
+    // Comprobar body del post
+    var email = req.body.email
+    if(!email){
+        return res
+            .status(400)
+            .send({message: 'Please send a email'})
+    }
+    User.findOne({email: email.toLowerCase()}, function(err, user) {
+        // Comprobar si hay errores
+        // Si el usuario existe o no
         if(err || !user){
             return res
                 .status(404)
                 .send({message: 'The user not exist'})
-        }else{
-            console.log('El usuario si existe');
         }
-        // Comprobar si hay errores
-        // Si el usuario existe o no
         return res
             .status(200)
             .send({token: service.createToken(user)})
+    })
+}
+
+exports.listUsers = function(req, res) {
+    User.find({}, function(err, users){
+        if(err || !users){
+            return res
+                .status(404)
+                .send({message: 'No results'})
+        }
+        return res
+            .status(200)
+            .send({users: users})
     })
 }
