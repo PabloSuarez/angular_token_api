@@ -16,7 +16,7 @@
       }
 
       return {
-        list: listUser
+        listUser: listUser
       }
 
     }])

@@ -2,7 +2,7 @@
 
 var app = angular.module('myapp', [
     'ngRoute',
-    'satellizer'
+    'satellizer',
     'myapp.controllers',
     'myapp.services',
 ])

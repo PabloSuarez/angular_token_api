@@ -1,4 +1,4 @@
-(function () {
+(function (_) {
 
 angular.module('myapp.controllers', [])
   .controller("SignUpController", SignUpController)
@@ -6,7 +6,7 @@ angular.module('myapp.controllers', [])
   .controller("LogoutController", LogoutController)
   .controller("HomeController", HomeController)
 
-  .controller("PrivateController", ["myappService", function ($auth, $location, myappService) {
+  .controller('PrivateController', ['$auth', '$location', 'myappService', function ($auth, $location, myappService) {
       this.users = []
       var self = this
       myappService.listUser()
@@ -68,6 +68,5 @@ angular.module('myapp.controllers', [])
 
     }
   }
-
 
 })()
