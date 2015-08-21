@@ -1,20 +1,20 @@
-var express = require('express')
-var bodyParser = require('body-parser')
-var mongoose = require('mongoose')
-var cors = require('cors')
-var auth = require('./auth')
-var middleware = require('./middleware')
-var config = require('./config')
-
-// Configuramos Express
-var app = express()
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true}))
-app.use(cors())
-app.set('port', config.PORT)
+var express = require('express'),
+	bodyParser = require('body-parser'),
+	mongoose = require('mongoose'),
+	cors = require('cors'),
+	auth = require('./auth'),
+	middleware = require('./middleware'),
+	config = require('./config'),
+	app = express()
 
 // Iniciamos las rutas de nuestro servidor/API
 var router = express.Router()
+
+// Configuramos Express
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.set('port', config.PORT)
 
 // Rutas de autenticación y login
 router.post('/auth/signup', auth.emailSignup)

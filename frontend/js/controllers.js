@@ -6,14 +6,25 @@ angular.module('myapp.controllers', [])
   .controller("LogoutController", LogoutController)
   .controller("HomeController", HomeController)
 
-  .controller('PrivateController', ['$auth', '$location', 'myappService', function ($auth, $location, myappService) {
-      this.users = []
-      var self = this
-      myappService.listUser()
-        .then(function (data) {
-          self.users = data
-        })
-    }])
+  .controller("PrivateController", ['$auth', '$location', 'myappService', PrivateController])
+
+  function PrivateController ($auth, $location, myappService) {
+    this.users = []
+    var self = this
+    myappService.listUser()
+      .then(function (data) {
+        self.users = data
+      })
+  }
+
+  // .controller('PrivateController', ['$auth', '$location', 'myappService', function ($auth, $location, myappService) {
+  //     this.users = []
+  //     var self = this
+  //     myappService.listUser()
+  //       .then(function (data) {
+  //         self.users = data
+  //       })
+  //   }])
 
   function SignUpController($auth, $location) {
     var vm = this

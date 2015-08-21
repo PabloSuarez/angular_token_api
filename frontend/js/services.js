@@ -3,12 +3,13 @@
   angular.module('myapp.services', [])
 
     .factory('myappService', ['$http', '$q', function ($http, $q) {
-      var host = 'localhost:3000'
+      var host = 'http://localhost:3000'
+      $http.defaults.useXDomain = true
 
       function listUser() {
         var deferred = $q.defer()
 
-        $http.get(host + '/private')
+        $http.get(host + '/auth/private')
           .success(function (data) {
             deferred.resolve(data)
           })
