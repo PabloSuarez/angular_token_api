@@ -2,9 +2,9 @@
 
 var app = angular.module('myapp', [
     'ngRoute',
-    'myapp.services',
-    'myapp.controllers',
     'satellizer'
+    'myapp.controllers',
+    'myapp.services',
 ])
 
 app.config(['$authProvider', '$routeProvider', function($authProvider, $routeProvider) {

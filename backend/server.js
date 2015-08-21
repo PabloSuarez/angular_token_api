@@ -19,12 +19,9 @@ var router = express.Router()
 // Rutas de autenticación y login
 router.post('/auth/signup', auth.emailSignup)
 router.post('/auth/login', auth.emailLogin)
-
 // Ruta solo accesible si estás autenticado
 router.get('/auth/private', middleware.ensureAuthenticated, auth.listUsers)
-
 app.use(router)
-
 
 // Iniciamos el servidor y la base de datos
 mongoose.connect('mongodb://localhost/user', function(err) {

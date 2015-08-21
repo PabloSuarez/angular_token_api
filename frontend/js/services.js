@@ -5,7 +5,7 @@
     .factory('myappService', ['$http', '$q', function ($http, $q) {
       var host = 'localhost:3000'
 
-      function list() {
+      function listUser() {
         var deferred = $q.defer()
 
         $http.get(host + '/private')
@@ -16,7 +16,7 @@
       }
 
       return {
-        list: list
+        list: listUser
       }
 
     }])
