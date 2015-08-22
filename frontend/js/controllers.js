@@ -1,12 +1,11 @@
-(function (_) {
+(function () {
 
 angular.module('myapp.controllers', [])
   .controller("SignUpController", SignUpController)
   .controller("LoginController", LoginController)
   .controller("LogoutController", LogoutController)
   .controller("HomeController", HomeController)
-
-  .controller("PrivateController", ['$auth', '$location', 'myappService', PrivateController])
+  .controller("PrivateController", PrivateController)
 
   function PrivateController ($auth, $location, myappService) {
     this.users = []
