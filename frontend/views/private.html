@@ -1,9 +1,16 @@
 <h1 style="color:#FF4E13; text-transform: uppercase; text-align: center;">
 	¿Este contenido es protegido?
-	<div ng-repeat="user in users">
-		<h2>{{ user.email }} </h2>
-	</div>
 </h1>
 <a href="https://twitter.com/SoyPabloSuarez" target="_blank" style="text-decoration:none">
 	<h2 style="color:#9ABCFF; text-align: right">@SoyPabloSuarez</h2>
 </a>
+
+<hr>
+	<div ng-repeat="user in users">
+		<h1 style="color:#FF4E13; text-transform: uppercase; text-align: center;">
+			{{ user.email }}
+		</h1>
+	</div>
+	<h3>{{ users.email }}</h3>
+	<h4>{{ users.password }}</h4>
+<hr>

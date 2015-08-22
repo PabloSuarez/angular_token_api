@@ -5,6 +5,7 @@
     .factory('myappService', ['$http', '$q', '$auth', function ($http, $q, $auth) {
       var host = 'http://localhost:3000',
           token = $auth.getToken()
+
       $http.defaults.useXDomain = true
 
       function listUser() {

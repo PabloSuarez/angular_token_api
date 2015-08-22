@@ -7,12 +7,11 @@ angular.module('myapp.controllers', [])
   .controller("HomeController", HomeController)
   .controller("PrivateController", PrivateController)
 
-  function PrivateController ($auth, $location, myappService) {
-    this.users = []
-    var self = this
+  function PrivateController ($scope, $auth, $location, myappService) {
+    $scope.users = []
     myappService.listUser()
       .then(function (data) {
-        self.users = data
+        $scope.users = data.users
       })
   }
 
@@ -25,7 +24,7 @@ angular.module('myapp.controllers', [])
       })
       .then(function() {
         // Si se ha registrado correctamente,
-        // Podemos redirigirle a otra parte
+        // Podemos redirigirle
         $location.path("/private")
       })
       .catch(function(response) {
