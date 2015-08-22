@@ -29,7 +29,6 @@ angular.module('myapp.controllers', [])
       })
       .catch(function(response) {
         // Si ha habido errores, llegaremos a esta función
-        console.log('Error en /login')
       })
     }
   }
@@ -48,7 +47,6 @@ angular.module('myapp.controllers', [])
       })
       .catch(function(response){
         // Si ha habido errores llegamos a esta parte
-        console.log('Erro: '+response)
       })
     }
   }
