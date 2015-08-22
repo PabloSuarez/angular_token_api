@@ -43,6 +43,7 @@ exports.emailLogin = function(req, res) {
 }
 
 exports.listUsers = function(req, res) {
+    console.log('entre desde API');
     User.find({}, function(err, users){
         if(err || !users){
             return res

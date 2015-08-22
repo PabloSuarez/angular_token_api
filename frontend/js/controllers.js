@@ -17,15 +17,6 @@ angular.module('myapp.controllers', [])
       })
   }
 
-  // .controller('PrivateController', ['$auth', '$location', 'myappService', function ($auth, $location, myappService) {
-  //     this.users = []
-  //     var self = this
-  //     myappService.listUser()
-  //       .then(function (data) {
-  //         self.users = data
-  //       })
-  //   }])
-
   function SignUpController($auth, $location) {
     var vm = this
     this.signup = function() {
